@@ -40,12 +40,6 @@ A simple and beautiful theme for wordpress.
 同样也支持分类显示。
 友链板块同样需要新建一个`页面`，并在页面写一些基本的友链申请描述。模板选择`友链`发布即可。
 
-## 截图演示
-![时光轴板块][1]
-![后台设置][2]
-![后台设置][3]
-![后台设置][4]
-
 ## 更新记录
 2017-07-08
 主题发布  pomolo-v1.0
@@ -84,9 +78,9 @@ A simple and beautiful theme for wordpress.
 2. 美化tooltip。
 
 ## 站点演示
-[--点击我--][5]
+[--点击我--][1]
 ## 下载地址
-[github地址][6]
+[github地址][2]
  
 ### 最后声明
 第一次做主题经验不足，主题或多或少存在一些bug。我已经尽力在改了。
@@ -95,13 +89,7 @@ A simple and beautiful theme for wordpress.
 
 ------
 
-作者@[痴情的小五][5]
+作者@[痴情的小五][1]
 页面最后修改于 -2017年9月17日
-
-
-  [1]: https://cherryml.com/wp-content/uploads/2017/09/20170708231542-1024x652.png
-  [2]: https://cherryml.com/wp-content/uploads/2017/09/20170708231400.png
-  [3]: https://cherryml.com/wp-content/uploads/2017/09/20170708231356.png
-  [4]: https://cherryml.com/wp-content/uploads/2017/07/12.png
-  [5]: https://cherryml.com
-  [6]: https://github.com/huzikai0424/pomelo
+ [1]: https://cherryml.com
+ [2]: https://github.com/huzikai0424/pomelo
