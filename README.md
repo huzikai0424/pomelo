@@ -1,5 +1,3 @@
-# pomelo
-A simple and beautiful theme for wordpress.
 ## 写在前面
 这个主题本来就想着自己写着玩玩，后来在服务器上测试，被小伙伴看到后要求我把这份主题给他。
 
@@ -91,5 +89,6 @@ A simple and beautiful theme for wordpress.
 
 作者@[痴情的小五][1]
 页面最后修改于 -2017年9月17日
- [1]: https://cherryml.com
- [2]: https://github.com/huzikai0424/pomelo
+	
+  [1]: https://cherryml.com
+  [2]: https://github.com/huzikai0424/pomelo
