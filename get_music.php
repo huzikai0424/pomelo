@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json;charset=UTF-8");
 require_once('Meting.php');
-use Metowolf\Meting;
+use Metowolfs\Meting;
 $id = (int)$_GET['id'];
 if ($id) {
 	$API = new Meting('netease');

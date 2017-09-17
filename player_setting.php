@@ -7,7 +7,7 @@ function pomelo_setting(){
 }
 
 //音乐API解析
-use Metowolf\Meting;
+use Metowolfs\Meting;
 $API = new Meting('netease');
 function get_playlist($id,$type){
     global $API;
