@@ -99,9 +99,9 @@ A simple and beautiful theme for wordpress.
 页面最后修改于 -2017年9月17日
 
 
-  [1]: https://cherryml.com/wp-content/uploads/2017/07/QQ%E6%88%AA%E5%9B%BE20170708231542-1024x652.png
-  [2]: https://cherryml.com/wp-content/uploads/2017/07/QQ%E6%88%AA%E5%9B%BE20170708231400.png
-  [3]: https://cherryml.com/wp-content/uploads/2017/07/QQ%E6%88%AA%E5%9B%BE20170708231356.png
+  [1]: https://cherryml.com/wp-content/uploads/2017/07/11.png
+  [2]: https://cherryml.com/wp-content/uploads/2017/09/20170708231400.png
+  [3]: https://cherryml.com/wp-content/uploads/2017/09/20170708231356.png
   [4]: https://cherryml.com/wp-content/uploads/2017/07/12.png
   [5]: https://cherryml.com
   [6]: https://github.com/huzikai0424/pomelo
