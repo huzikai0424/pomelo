@@ -114,7 +114,7 @@ function optionsframework_options() {
 	);
 
 	$options[] = array(
-		'name' => __( '首页视觉差大图', 'theme-textdomain' ),
+		'name' => __( '首页背景', 'theme-textdomain' ),
 		'desc' => __( '最佳尺寸1920*1080', 'theme-textdomain' ),
 		'id' => 'scene-image',
 		'type' => 'upload'
@@ -143,7 +143,7 @@ function optionsframework_options() {
 	$options[] = array(
 		'name' => __( '网站描述', 'theme-textdomain' ),
 		'desc' => __( '用简洁的文字描述本站点，建议小于50字。', 'theme-textdomain' ),
-		'id' => 'descriptions',
+		'id' => 'description',
 		'std' => '',
 		'type' => 'text'
 	);
@@ -162,6 +162,14 @@ function optionsframework_options() {
 		'desc' => __( '页脚说明文字。自动保留空格和换行，支持HTML代码，不支持js代码。', 'theme-textdomain' ),
 		'id' => 'footer',
 		'std' => 'Copyright © 2017 痴情的小五 · ',
+		'type' => 'textarea'
+	);
+	
+	$options[] = array(
+		'name' => __( '统计代码', 'theme-textdomain' ),
+		'desc' => __( '输入站长统计代码,请务必去掉&lt;script&gt;和&lt;/script&gt;标签。你也可以写自定义js,它将会显示在&lt;/body&gt;前。', 'theme-textdomain' ),
+		'id' => 'tongji',
+		'std' => '',
 		'type' => 'textarea'
 	);
 

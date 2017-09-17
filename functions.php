@@ -307,7 +307,7 @@ if(!function_exists('theme_comment')){
                         <div class="comment-author vcard">
                         <?php echo get_avatar( $comment, $args['avatar_size'] ); ?>
                             <cite class="fn">
-                                <a href="<?php echo comment_author_url()?>"><?php echo comment_author();?></a>
+                                <a href="<?php echo comment_author_url()?>" target="_blank"><?php echo comment_author();?></a>
                                 <?php if(user_can($comment->user_id, 1)){echo '<a title="博主认证" class="admin">博主</a>';} ?>
                             </cite>
                             <span class="says">说道:</span>
@@ -415,12 +415,12 @@ function theme_enqueue_scripts() {
     if(!is_admin()){
         wp_enqueue_style('stylesheet', THEME_URL.'style.css', array(), null ); 
         wp_enqueue_style('highlight',  THEME_URL.'css/monokai-sublime.css', array(), null ); 
-        wp_enqueue_script('jquery',    THEME_URL.'js/jquery-3.2.1.min.js' , '3.2.1', true); 
+        wp_enqueue_script('jquery',    THEME_URL.'js/jquery-3.2.1.min.js' , array(),'3.2.1', true); 
         if(pomelo_option('input')['one']||pomelo_option('input')['two']){
-            wp_enqueue_script('input', THEME_URL.'js/input.min.js',array(),'1.0.0',true);
+            wp_enqueue_script('input', THEME_URL.'js/input.min.js',array(),false,true);
         }
         wp_enqueue_script('highlight', THEME_URL.'js/highlight.pack.js' , array(), false,true);  
-        wp_enqueue_script('theme_js',  THEME_URL.'js/script.js' , array(), '1.0.0', true);
+        wp_enqueue_script('theme_js',  THEME_URL.'js/script.js' , array(), '1.0', true);
         // 脚本本地化：后端给前端准备的变量
         wp_localize_script( 'theme_js', 'theme_var', 
             array(
@@ -671,20 +671,6 @@ function theme_get_useragent($ua){
     $browser = theme_get_browsers($ua);
     $os = theme_get_os($ua);
     return '<span class="useragent-info">来自 '. $browser[0] .'&nbsp;in&nbsp;'. $os[0] .' </span>';
-}
-//默认歌单
-function music_default(){
-    $playlist='[
-    {
-        "id": 139774,
-        "name": "The truth that you leave",
-        "artist": "Pianoboy",
-        "pic_url": "https:\/\/p3.music.126.net\/9idkdzbel_-lYBP7Dv_dVQ==\/102254581395289.jpg?param=300z300&quality=100",
-        "lyric_url": "http:\/\/localhost\/wordpress\/wp-content\/themes\/pomelo\/lrc.php?id=139774",
-        "time": 223
-    }
-]';
-  return $playlist;
 }
 //不知道有啥用
 function reset_password_message( $message, $key ) { 

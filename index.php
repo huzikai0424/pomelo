@@ -1,7 +1,14 @@
 <?php echo get_header(); ?>
 <div id="wrap">
 <div class="top">
-	<div id="bg"></div>
+<?php 
+if(pomelo_option("scene-image"))
+	$bg_url=pomelo_option("scene-image");
+else
+	$bg_url="http://oijbbaxnm.bkt.clouddn.com/star.jpg";
+?>
+	<div id="bg" style='background: url("<?php echo $bg_url;?>");'></div>
+
 	<div class="info">
 		<div class="info-box">
 			<div class="blog-name">
@@ -16,11 +23,7 @@
 		</div>
 	</div>
 </div>
-<?php if(pomelo_option("scene-image")):?>
-<script>
-$("#bg").css("background","url(<?php echo pomelo_option('scene-image')?>)");
-</script>
-<?php endif;?>
+
 	<div class="main">
 	<div class="content">
 		<?php while ( have_posts() ) : the_post(); ?>

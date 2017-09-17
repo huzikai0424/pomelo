@@ -8,9 +8,10 @@
 	<span id="demo"></span>
 	</div>
 	<?php echo pomelo_option("footer")?>
-	<span>Powered by <a href="https://cn.wordpress.org/">WordPress</a> · Theme  <a href="https://cherryml.com">Pomelo</a></span>
+	<span>Powered by <a href="https://cn.wordpress.org/">WordPress</a> · Theme  <a href="https://cherryml.com/archives/956.html">Pomelo</a></span>
 </footer>
 <?php echo wp_footer();?>
 <!--<?php echo get_num_queries(); ?> queries in <?php timer_stop(3); ?> seconds-->
+<?php if(pomelo_option("tongji")) echo "<script>".pomelo_option("tongji")."</script>";?>
 </body>
 </html>

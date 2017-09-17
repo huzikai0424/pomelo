@@ -35,7 +35,7 @@
     if ($mon != $mon_tmp) {
         $mon = $mon_tmp;        
         array_push($all[$year], $mon);
-        $output .= "<div class='archive-title' id='arti-$year-$mon'><h3>$year-$mon<a class='fr' href='/date/$year/$mon'>查看当月全部文章</a></h3><div class='archives archives-$mon' data-date='$year-$mon'>"; //输出月份
+        $output .= "<div class='archive-title' id='arti-$year-$mon'><h3>$year-$mon</h3><div class='archives archives-$mon' data-date='$year-$mon'>"; //输出月份
     }
 	$id=$post->ID; 
 	$comment_num=get_post($id)->comment_count; 

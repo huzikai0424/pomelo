@@ -15,7 +15,7 @@
 	<?php 
 		$array_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
 		if(isset($array_image_url[0])):?>
-		<div class="post_img"><img src="<?php echo $array_image_url[0];?>" alt></div>
+		<div class="post_img"><a href="<?php echo the_permalink();?>"><img src="<?php echo $array_image_url[0];?>" alt="<?php echo the_title();?>"></a></div>
 	<?php endif;?>
 	<p><?php echo mb_strimwidth(strip_shortcodes(strip_tags(apply_filters('the_content', $post->post_content))), 0, 180,"...");?></p>
 </article>

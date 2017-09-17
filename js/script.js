@@ -18,10 +18,20 @@ function a(){
         if( e.state ){
         	document.title = e.state.title;
             $("#wrap").html( e.state.html ); //也可以用replaceWith ，最后这个html就是上面替换State后里面的html值  
-            //高亮重载 
+			//rerun();
+           //高亮重载 
             $('pre code').each(function(i, block) {
     			hljs.highlightBlock(block);
   			});
+			//设置平铺背景
+			var window_height=$(window).height();
+			$('#bg').height(window_height);
+			$(".top").height(window_height);
+			$(window).resize(function(){
+				var window_height=$(window).height();
+				$(".top").height(window_height);
+				$('#bg').height(window_height);
+			});
 		}
     });    
 }
@@ -619,7 +629,7 @@ $("audio#music").on("ended",function(){
 		$("p#song_title").text("暂无歌曲");
 		$("p#song_singer").text("暂无信息");
 		$("p#song_time").text("");
-		$("#song_img img").attr("src","../images/cover_mine.jpg");
+		$("#song_img img").attr("src","../images/default_avater.jpg");
 	}
 	//play按钮
 	$("#song_play").click(function(){
@@ -814,8 +824,8 @@ $("audio#music").on("ended",function(){
 	xl();
 	set_qqinfo();
 });
-//ajax加载
-$(document).on('click',"#wrap h2 a[href!=''],div.archives a,.my_tags a,.main-nav ul#topnav li a,#next_p a,#post-tag a",function(){
+//ajax加载,pjax?
+$(document).on('click',".content a,#primary a,.main-nav ul#topnav li a,#next_p a,#post-tag a,.author-nav a,.blog-name a",function(){
 	var reqUrl=$(this).attr("href");
 	if(typeof(reqUrl)=='undefined'||reqUrl=='')
 		return false;

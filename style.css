@@ -90,7 +90,6 @@ pre ::-webkit-selection {
 	overflow:hidden;
 }
 #bg{
-	background: url('images/xingkong06.jpg');
 	background-position: 50% 50% !important; 
 	background-size: cover !important; 
 	width: auto; 
@@ -235,29 +234,31 @@ pre ::-webkit-selection {
 .content {
 	line-height: 1.75rem;
 }
-
+#close-comments{
+	color: #777;
+    font-size: .9rem;
+    text-align: center;
+	margin-bottom:0;
+}
 article{
 	border-bottom: 1px dashed #ddd;
     padding: 20px 20px;
     overflow: hidden;
     line-height: 2;
-    
     transition: all .5s ease;
 }
 article p{
 	font-size: 1rem;
 	color:#333;
 	padding:10px 0;
-	max-height: 106px;
-    overflow: hidden;
-	}
+	overflow: hidden;
+}
 article .post_img img:hover{
 	transform: scale(1.1);
 	transition:all .5s ease;
 	-webkit-transition:all .5s ease;
 	-webkit-transform: scale(1.1);
 	opacity: .7;
-
 }
 article .post_img img{
 	transition: all 0.6s; 
@@ -267,7 +268,6 @@ article .post_img img{
 article .post_img{
 	overflow: hidden;
 	max-height: 450px;
-
 }
 article h2{
 	font-size: 1.4rem;
@@ -281,7 +281,7 @@ article h2{
 	width: 100%;
 	margin: 50px 0;
     text-align: center;
-
+	display:inline-block;
 }
 #more a{
 	padding:10px 30px;
@@ -623,7 +623,7 @@ footer a{
 }
 /*tips*/
 #theme_tips{
-	width: 240px;
+	
 	height: 55px;
 	border-radius:4px;
 	position: fixed;
@@ -636,11 +636,11 @@ footer a{
 }
 #theme_tips #tips_icon img{
 	position: relative;
-	left: 19px;
-    top: 11px;
+	left: 14px;
+    top: 10px;
 }
 #theme_tips #tips_icon{
-	width: 70px;
+	width: 55px;
     height: 55px;
     background: #2773a5;
     display: table-cell;
@@ -652,13 +652,13 @@ footer a{
     color: #fff;
     font-size: 17px;
     background: #3498db;
-    width: 170px;
+    min-width: 150px;
 }
 .showtips{   
 	/*-webkit-transition: -webkit-transform .5s ease;
     transition: transform .5s ease;*/
-    -webkit-transform: translateX(-130%);
-    transform: translateX(-130%);
+    -webkit-transform: translateX(-150%);
+    transform: translateX(-150%);
 }
 /*animation*/
 
@@ -739,6 +739,12 @@ footer a{
 	margin-bottom: 20px;
 }
 /*links*/
+.link-main{
+	border-bottom: 1px dashed #ddd;
+    padding: 20px 20px;
+    transition: all .5s ease;
+}
+
 .links{
 	padding: 50px 0;
 }
@@ -967,7 +973,7 @@ div#post-title h2{
 }
 #post-content pre code.hljs{
 	padding: 0.5em;
-	font-size: 17px;
+	font-size: 16px;
 	color: #f8f8f2;
 	background: #23241f;
 }
@@ -2165,10 +2171,12 @@ ul#my_lyrics li{
 @media screen and (max-width: 680px) {
     article p{
     	font-size: 15px;
-    	max-height: 96px;
     }
     #post-copyright{
 		padding:0 !important;
+	}
+	.reply a{
+		display: block;
 	}
 
 }
@@ -2211,12 +2219,11 @@ ul#my_lyrics li{
 		padding: 8px;
 		overflow: hidden;
 	}
-
 }
 @media screen and (max-width: 420px) {
-	.top,#bg{
+    .top,#bg{
 		height: 300px !important
-	}
+    }
     article p{
     	font-size: 14px;
     }
@@ -2277,4 +2284,5 @@ ul#my_lyrics li{
 	.link-item{
 		margin:8px;
 	}
+}
 }

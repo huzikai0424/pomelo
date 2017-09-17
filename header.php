@@ -4,9 +4,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <meta charset="<?php echo bloginfo("charset");?>">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<?php if(pomelo_option('descriptions')):?>
-<meta name="description" content="<?php if(pomelo_option('description')) echo pomelo_option('description');else echo bloginfo("description");?>">
-<?php endif;?>
+<meta name="description" content="<?php echo pomelo_option('description')?pomelo_option('description'):get_bloginfo("description");?>">
 <?php if(pomelo_option('keywords')):?>
 <meta name="keywords" content="<?php echo pomelo_option('keywords')?>">
 <?php endif;?>
@@ -14,7 +12,7 @@
 	global $page, $paged;
 	wp_title( '-', true, 'right' );
 	bloginfo( 'name' );
-	$site_description = get_bloginfo( 'description', 'display' );
+	$site_description = pomelo_option('description')?pomelo_option('description'):get_bloginfo( 'description', 'display' );
 	if ( $site_description && ( is_home() || is_front_page() ) ) 
 		echo " - $site_description";
 	if ( $paged >= 2 || $page >= 2 ) 
