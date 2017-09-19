@@ -39,19 +39,6 @@ function get_playlist($id,$type){
 		}
 	   return $json;
 }
-function music_default(){
-    $playlist='[
-    {
-        "id": 139774,
-        "name": "The truth that you leave",
-        "artist": "Pianoboy",
-        "pic_url": "https:\/\/p3.music.126.net\/9idkdzbel_-lYBP7Dv_dVQ==\/102254581395289.jpg?param=300z300&quality=100",
-        "lyric_url": "http:\/\/localhost\/wordpress\/wp-content\/themes\/pomelo\/lrc.php?id=139774",
-        "time": 223
-    }
-]';
-  return $playlist;
-}
 //注册播放器后台
 add_action('admin_menu', 'register_custom_menu_page');
 function register_custom_menu_page() {
