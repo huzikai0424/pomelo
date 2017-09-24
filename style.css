@@ -2031,13 +2031,6 @@ p#song_singer{
     font-family: Arial,Tahoma,"hiragino sans gb",Helvetica;
     font-size: 12px;
     padding-top: 2px;
-    scrollbar-arrow-color: #000;
-    scrollbar-face-color: #0CC65B;
-    scrollbar-3dlight-color: #0CC65B;
-    scrollbar-highlight-color: #1B1B1B;
-    scrollbar-shadow-color: #1B1B1B;
-    scrollbar-darkshadow-color: #1B1B1B;
-    scrollbar-track-color: #1B1B1B;
 }
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
 #player_list_main::-webkit-scrollbar {
