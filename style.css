@@ -59,18 +59,17 @@ pre ::-webkit-selection {
 .text-center{
 	text-align: center;
 }
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+/*定义滚动条高宽 高宽分别对应横竖滚动条的尺寸*/  
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
-    background-color: #eee;
 }
-/*定义滚动条轨道 内阴影+圆角*/  
+/*定义滚动条轨道背景*/  
 ::-webkit-scrollbar-track {
     background-color: #eee;
 }  
 
-/*定义滑块 内阴影+圆角*/  
+/*定义滑块背景*/  
 ::-webkit-scrollbar-thumb {
     background-color: #69d2e7;
 }
@@ -940,6 +939,7 @@ div#post-title h2{
     border-radius: 4px;
 }
 #post-content h3{
+	margin-bottom: 12px;
 	padding-bottom: 8px;
     border-bottom: 1px dashed #ddd;
     color: #737373;
@@ -2042,17 +2042,18 @@ p#song_singer{
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
 #player_list_main::-webkit-scrollbar {
     width: 9px;
-    height: 3px;
-   	background-color: #0CC65B !important;
+    height: 9px;
 }
-/*---滚动条默认显示样式--*/  
+/*--滚动条轨道--*/  
 #player_list_main::-webkit-scrollbar-thumb{
 	background-color: #0CC65B;
-	height:50px;  
 	-webkit-border-radius:4px;  
 }
+/*--滚动条滑块--*/
+#player_list_main::-webkit-scrollbar-track{
+	background-color:transparent;
+}
 #player_listbar span{
-	
 	font-size: 12px;
 	color: #828282;
 	padding:5px 5px 5px 10px;
