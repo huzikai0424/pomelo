@@ -508,7 +508,7 @@ function lrc_rog(){
 	else if(currentTime>lyric[long][0])
 		l=long;
 	else {
-		for(var k=0;k<long;k++){
+		for(var k=0;k<long+1;k++){
 			if(currentTime==lyric[k][0]){
 				l=k;
 				break;
