@@ -110,7 +110,7 @@ function playersettingpage(){ ?>
       <div class="pomelo-ps">
       <p>歌单：http://music.163.com/#/playlist?id=<code>469469926</code>（数字即为歌单ID）</p>
       <p>专辑：http://music.163.com/#/album?id=<code>2857009</code>（数字即为专辑ID）</p>
-      <p>如果获取歌单为空，那么请检查ID是否输入正确；如果歌曲不能正常不播放，请重新获取歌单数据，检查PHP版本不低于5.5。</p>
+      <p>如果获取歌单为空，那么请检查ID是否输入正确。如果歌曲不能正常播放，请重新获取歌单数据，并检查PHP版本是否不低于5.5。</p>
 	  <p>获取到歌单别忘记点击<code>保存设置</code>哦~</p>
       <hr>
       <p>最后更新于2017.07.31 @<a href="https://cherryml.com">痴情的小五</a></p>
