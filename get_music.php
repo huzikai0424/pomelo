@@ -8,7 +8,8 @@ if ($id) {
 	$data = $API->format(true)->url($id);
 	$arr = array();
 	$arr = json_decode($data);
-	$url=preg_replace('/https?:\/\/m([78])c/','//m$1',$arr->url);
+	$url = preg_replace('/https?:/','',$arr->url);
+	$url = preg_replace('/\/\/m([78])c/','//m$1',$url);
 	echo '{"url":"'.$url.'"}';
 }else{
 	echo 'false';
