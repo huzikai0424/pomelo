@@ -848,7 +848,7 @@ $(document).on('click',".content a,#primary a,.main-nav ul#topnav li a,#next_p a
 			$("#wrap").html(state.html);	//替换新内容
 			document.title=$(data).filter("title").text();	//改变标题
 			window.history.pushState(state, $(data).filter("title").text(), reqUrl);//把历史记录塞进history，并改变url
-            $("html body").scrollTop(0);	//置顶
+            $(document).scrollTop(0);	//置顶
 	        $("div#loading").fadeOut();		//隐藏loading动画
 	       	rerun();						//回调函数
 			xl();
