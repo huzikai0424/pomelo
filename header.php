@@ -58,9 +58,9 @@
 				))?>  
 </div>
 <div id="switch">
-	<a href="javascript:;">
-	<span>菜单</span>
-	</a>
+	<div id="iconfixed">
+		<div class="icon"></div>
+	</div>
 </div>
 <div id="go-top"></div>
 <div id="theme_tips">
