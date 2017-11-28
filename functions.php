@@ -354,8 +354,8 @@ function my_change_avatar($avatar){
     global $comment;
     if( get_comment_meta( $comment->comment_ID, 'new_field_qq', true ) && preg_match('/^\d{6,11}$/',get_comment_meta( $comment->comment_ID, 'new_field_qq', true ))){
         $qq_number =  get_comment_meta( $comment->comment_ID, 'new_field_qq', true );
-        $qqavatar = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin='.$qq_number);
-        preg_match('/http:(.*?)&t/',$qqavatar,$m); // 匹配 http: 和 &t 之间的字符串
+        $qqavatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin='.$qq_number);
+        preg_match('/https:(.*?)&t/',$qqavatar,$m); // 匹配 http: 和 &t 之间的字符串
         return '<img src="'.stripslashes($m[1]).'" class="avatar avatar-40 photo" width="40" height="40"  alt="qq_avatar" />';
     }else{
         return $avatar ;

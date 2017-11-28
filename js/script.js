@@ -83,7 +83,7 @@ function getCookie(b){var a,c=new RegExp("(^| )"+b+"=([^;]*)(;|$)");if(a=documen
 //设置QQ信息
 	function set_qqinfo(){
 	if(getCookie('user_avatar') && getCookie('user_qq')&&getCookie('user_nicename') ){
-			$('img#qq_avatar').attr('src',getCookie('user_avatar').substr(5));
+			$('img#qq_avatar').attr('src',getCookie('user_avatar').substr(6));
 			$('input#QQ').val(getCookie('user_qq'));
 			$("#comment_info").html(getCookie('user_nicename')+" ▼");
 			$("input#author").val(getCookie('user_nicename'));
