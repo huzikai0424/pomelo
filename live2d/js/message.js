@@ -117,31 +117,44 @@ function hideMessage(timeout){
     $('.message').delay(timeout).fadeTo(200, 0);
 }
 loadlive2d("live2d", message_Path+"/live2d/model/get_wife.php");
+var wife_postion=JSON.parse(localStorage.getItem("wife"));
+if(wife_postion){
+    $("#wife").css({"left":wife_postion.x,"top":wife_postion.y});
+}
 $(function(){
     var wife=document.getElementById("wife");
     wife.onmousedown=function(event){
-        var event=window.event||event;
-        var offsetX=event.clientX-wife.offsetLeft;  //点击时的静态xy坐标
-        var offsetY=event.clientY-wife.offsetTop;
-
-        document.onmousemove=function(event){
-
-            var _event=window.event||event;     //移动时的实时xy坐标
-            var reallyX=wife.offsetLeft<0?0:_event.clientX-offsetX;
-            var reallyY=wife.offsetTop<0?0:_event.clientY-offsetY;
-            wife.style.left=reallyX+"px";
-            wife.style.top=reallyY+"px";
-            //console.log();
-            //console.log();
+        var e=window.event||event;
+        var x=e.clientX-wife.offsetLeft;  
+        var y=e.clientY-wife.offsetTop;     //老婆相对与浏览器可视窗口的坐标
+        if(x>=0&&y>=0){
+            document.onmousemove=function(event){
+                var event=window.event||event;    
+                var clientW=document.documentElement.clientWidth || document.body.clientWidth; //可视宽度
+                var clientH=document.documentElement.clientHeight||document.body.clientHeight;  //可视高度
+                wife.style.left=event.clientX-x+"px";   
+                wife.style.top=event.clientY-y+"px";
+                if(event.clientX-x<0){
+                    wife.style.left=0;
+                }
+                else if(event.clientX-x>clientW-wife.offsetWidth){
+                    wife.style.left=clientW-wife.offsetWidth+"px";
+                }
+                if(event.clientY-y<0){
+                    wife.style.top=0;
+                }
+                else if(event.clientY-y>clientH-wife.offsetHeight){
+                    wife.style.top=clientH-wife.offsetHeight+"px";
+                }
+            };
+            document.onmouseup=function(e){
+                var html="clientX="+e.clientX+"\nclientY="+e.clientY+"\noffsetleft="+wife.offsetLeft+"\noffsetTop="+wife.offsetTop;
+                $('.message').text(html);
+                localStorage.setItem("wife",JSON.stringify({"x":wife.style.left,"y":wife.style.top}));
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
         }
-        document.onmouseup=function(e){
-            var html="clientX="+e.clientX+"\nclientY="+e.clientY+"\noffsetleft="+wife.offsetLeft+"\noffsetTop="+wife.offsetTop;
-            $('.message').text(html);
-            //console.log(e.clientX);
-            //console.log(wife.offsetLeft);
-
-            document.onmousemove=null;
-            document.onmouseup=null;
-        }
-    }
+        return false;
+    };
 });

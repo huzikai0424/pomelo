@@ -2218,13 +2218,10 @@ ul#my_lyrics li{
     z-index: 10000;
     font-size: 0;
     transition: opacity .3s ease-in-out;
-    border: 1px solid;
 }
-
 #live2d {
     position: relative;
 }
-
 .message {
     opacity: 0;
     width: 200px;
@@ -2244,7 +2241,6 @@ ul#my_lyrics li{
     animation-name: shake;
     animation-timing-function: ease-in-out;
 }
-
 @media (max-width: 860px) {
     #landlord {
         display: none;
