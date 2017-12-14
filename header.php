@@ -67,6 +67,10 @@
 	<div id="tips_icon"><img src="<?php echo get_template_directory_uri();?>/images/tip.png" alt=""></div>
 	<div id="tips_text">欢迎来到我的博客！</div>
 </div>
+<div id="wife">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+</div>
 <?php if(get_option('pomelo_player_setting')['music_open']=="1"):?>
 <div id="player">
 		<audio id="music"></audio>
