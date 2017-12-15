@@ -439,7 +439,17 @@ function theme_enqueue_scripts() {
         wp_enqueue_script('message',   THEME_URL.'live2d/js/message.js' , array(), false,true); 
         wp_enqueue_script('theme_js',  THEME_URL.'js/script.js' , array(), '1.0', true);
         // 脚本本地化：后端给前端准备的变量
-        wp_localize_script( 'message', 'wife_var', array('themeurl' => get_template_directory_uri().'/'));
+        wp_localize_script( 'message', 'wife_var', 
+            array(
+                'themeurl'      => get_template_directory_uri().'/',
+                'homeurl'       => home_url().'/',
+                'open'          => pomelo_option('wife_open'),
+                'autochange'    => pomelo_option("wife_autoChange"),
+                'photo_url'     => pomelo_option("wife_photo_url"),
+                'hitokoto_type' => pomelo_option("wife_hitokoto"),
+                'refresh_time'  => pomelo_option("wife_hitokoto_refresh"),
+                )
+            );
         wp_localize_script( 'theme_js', 'theme_var', 
             array(
                 'themeurl'        => get_template_directory_uri().'/',

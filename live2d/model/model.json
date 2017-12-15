@@ -2,7 +2,7 @@
     "version":"1.0.0",
     "model":"model.moc",
      "textures":[
-        "textures/poi2.png"
+        "http://localhost/wordpress/wp-content/themes/pomelo/live2d/model/textures/2.png"
     ],
     "layout":{
         "center_x":0.0,

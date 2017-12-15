@@ -328,6 +328,76 @@ function optionsframework_options() {
 		 'two' => __('禁止选中文本',''),
 		 'three'=>__('禁止F12调试','')
 	));
+	//看板娘
+	$options[] = array(
+		'name' => __( '看板娘', 'theme-textdomain' ),
+		'type' => 'heading'
+	);
+	$options[] = array(
+		'name' => __( '看板娘开关', 'theme-textdomain' ),
+		'desc' => __( '显示萌萌哒的看板娘', 'theme-textdomain' ),
+		'id' => 'wife_open',
+		'std' => 'yes',
+		'type' => 'radio',
+		'options' => array(
+		 'yes' => __('开启',''),
+		 'no' => __('关闭','')
+	));
+	$options[] = array(
+		'name' => __( '自动换装', 'theme-textdomain' ),
+		'desc' => __( '没有放入服装文件前请不要开启！', 'theme-textdomain' ),
+		'id' => 'wife_autoChange',
+		'std' => 'no',
+		'type' => 'radio',
+		'options' => array(
+		 'yes' => __('开启',''),
+		 'no' => __('关闭','')
+	));
+	$options[] = array(
+		'name' => __( '图床链接', 'theme-textdomain' ),
+		'desc' => __( '如果本地引用,请留空', 'theme-textdomain' ),
+		'id' => 'wife_photo_url',
+		'std' => '',
+		//'placeholder' => 'Placeholder',
+		'type' => 'text'
+	);
+	$options[] = array(
+		'name' => __( '看板娘一言类型', 'theme-textdomain' ),
+		'desc' => __( '在下方选择一言类型,如果不需要请选关闭.它和页脚的一言相互独立', 'theme-textdomain' ),
+		'id' => 'wife_hitokoto',
+		'std' => 'random',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => array(
+		  'random' => __('全部随机',''),
+		  'close' => __('关闭',''),
+		  'a' => __('动画',''),
+		  'b' => __('漫画',''),
+		  'c' => __('游戏',''),
+		  'd' => __('小说',''),
+		  'e' => __('原创',''),
+		  'f' => __('来自网络',''),
+		  'g' => __('其他','')
+		  )
+	);
+	$options[] = array(
+		'name' => __( '一言刷新间隔（单位：秒）', 'theme-textdomain' ),
+		'desc' => __( '填0或者为空不刷新，时间间隔不要少于10，推荐30，填数字！！！', 'theme-textdomain' ),
+		'id' => 'wife_hitokoto_refresh',
+		'std' => '0',
+		'type' => 'text',
+		'class' => 'mini'
+	);
+	$options[] = array(
+		'name' => __( '关于图床链接', 'theme-textdomain' ),
+		'desc' => __( '填写到图片的目录，如www.baidu.com/a/1.png，请填写www.baidu.com/a，末尾不要加斜杠 /' ),
+		'type' => 'info'
+	);
+	$options[] = array(
+		'name' => __( '关于自动换装', 'theme-textdomain' ),
+		'desc' => __( '主题默认只自带一种服装，想实现换装功能请先把服装文件下载放到主题live2d\model\textures目录或者图床，请勿修改文件名！没有放入服装文件前请不要开启自动换装！' ),
+		'type' => 'info'
+	);
 	//music
 	$options[] = array(
 		'name' => __( '其他', 'theme-textdomain' ),
@@ -359,6 +429,6 @@ function optionsframework_options() {
 		'desc' => __( '代码来源在代码中都有注释，感谢@Louie @Inlojv等大触的帮助。', 'theme-textdomain' ),
 		'type' => 'info'
 	);
-	
+
 	return $options;
 }

@@ -2,9 +2,11 @@
 header('Content-Type: text/text; charset=utf-8');
 ERROR_REPORTING(0);
 $randNum=rand(1,64);
+$imgUrl="http://oijbbaxnm.bkt.clouddn.com/2.png";
 $json='{"version":"1.0.0",
     "model":"model.moc",
-    "textures":["textures/'.$randNum.'.png"],
+    
+    "textures":[""],
     "layout":{
         "center_x":0.0,
         "center_y":-0.05,

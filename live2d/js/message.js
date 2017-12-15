@@ -1,7 +1,5 @@
-
-var message_Path = wife_var.themeurl;
-var home_Path = wife_var.themeurl;
-function renderTip(template, context) {
+if(wife_var.open){
+    function renderTip(template, context) {
     var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
     return template.replace(tokenReg, function (word, slash1, token, slash2) {
         if (slash1 || slash2) {
@@ -29,7 +27,7 @@ $(document).on('copy', function (){
 
 $.ajax({
     cache: true,
-    url: `${message_Path}/live2d/message.json`,
+    url: wife_var.themeurl+"live2d/message.json",
     dataType: "json",
     success: function (result){
         $.each(result.mouseover, function (index, tips){
@@ -50,8 +48,7 @@ $.ajax({
         });
     }
 });
-
-(function (){
+function wife_welcome(){
     var text;
     if(document.referrer !== ''){
         var referrer = document.createElement('a');
@@ -66,7 +63,8 @@ $.ajax({
             text = '嗨！ 来自 谷歌搜索 的朋友，<br>欢迎阅读<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
         }
     }else {
-        if (window.location.href == `${home_Path}`) { //如果是主页
+        if (window.location.href == wife_var.homeurl) { //如果是主页
+            console.log(wife_var.homeurl);
             var now = (new Date()).getHours();
             if (now > 23 || now <= 5) {
                 text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？';
@@ -92,12 +90,17 @@ $.ajax({
         }
     }
     showMessage(text, 12000);
-})();
+}
+    
 
-//window.setInterval(showHitokoto,30000);
+if(wife_var.refresh_time!="0"&&wife_var.refresh_time!=""){
+    window.setInterval(showHitokoto,wife_var.refresh_time*1000);
+}
+
 
 function showHitokoto(){
-    $.getJSON('https://sslapi.hitokoto.cn/',function(result){
+    var hitokoto_url="?c="+wife_var.hitokoto_type;
+    $.getJSON('https://sslapi.hitokoto.cn/'+hitokoto_url,function(result){
         showMessage(result.hitokoto, 5000);
     });
 }
@@ -116,12 +119,25 @@ function hideMessage(timeout){
     if (timeout === null) timeout = 5000;
     $('.message').delay(timeout).fadeTo(200, 0);
 }
-loadlive2d("live2d", message_Path+"/live2d/model/get_wife.php");
-var wife_postion=JSON.parse(localStorage.getItem("wife"));
-if(wife_postion){
-    $("#wife").css({"left":wife_postion.x,"top":wife_postion.y});
+function Init_wife(){
+    
+    var url=wife_var.photo_url;
+    var autochange=wife_var.autochange=="yes"?"1":"0";
+    if(url){
+       var imgUrl=wife_var.photo_url;
+    }else{
+       var imgUrl=wife_var.themeurl+"live2d/model/textures/";
+    }
+
+    loadlive2d("live2d", wife_var.themeurl+"live2d/model/get_wife.php");
+    var wife_postion=JSON.parse(localStorage.getItem("wife"));
+    if(wife_postion){
+        $("#wife").css({"left":wife_postion.x,"top":wife_postion.y});
+    }
 }
 $(function(){
+    Init_wife();
+    wife_welcome();
     var wife=document.getElementById("wife");
     wife.onmousedown=function(event){
         var e=window.event||event;
@@ -158,3 +174,4 @@ $(function(){
         return false;
     };
 });
+}

@@ -817,8 +817,7 @@ $("audio#music").on("ended",function(){
 	//console
 	if (window.console && window.console.log) {
 	console.log("\n %c 痴情的小五 %c https://cherryml.com \n","color: #fff; background: #ffa628; padding:5px 0;","background: #efefef; padding:5px 0;");
-    console.log("\n  ┏┓　　　┏┓  \n┏┛┻━━━┛┻┓  \n┃　　　　　　　┃  \n┃　　　━　　　┃  \n┃　┳┛　┗┳　┃  \n┃　　　　　　　┃  \n┃　　　┻　　　┃  \n┃　　　　　　　┃  \n┗━┓　　　┏━┛  \n　　┃　　　┃神兽保佑  \n　　┃　　　┃代码无BUG！ \n　　┃　　　┗━━━┓  \n　　┃　　　　　　　┣┓  \n　　┃　　　　　　　┏┛  \n　　┗┓┓┏━┳┓┏┛  \n　　　┃┫┫　┃┫┫  \n　　　┗┻┛　┗┻┛  ");
- }
+}
 	rerun();
 	a();
 	xl();

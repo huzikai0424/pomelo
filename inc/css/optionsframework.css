@@ -61,13 +61,13 @@ a#options-group-2-tab:before {
 
 a#options-group-3-tab:before {
     font-family: "dashicons";
-    content: "\f123";
+    content: "\f487";
     float: left;
 }
 
 a#options-group-4-tab:before {
     font-family: "dashicons";
-    content: "\f487";
+    content: "\f102";
     float: left;
 }
 
@@ -160,6 +160,7 @@ input[type="submit" i], input[type="reset" i]{
     margin-bottom: 20px;
 	padding-bottom: 30px;
     border-bottom: 1px solid #E8E8E8;
+    line-height: 2;
 }
 #optionsframework .group {
 	padding-bottom:40px;
