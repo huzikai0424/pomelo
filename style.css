@@ -36,7 +36,22 @@ body{
 	overflow-x: hidden;
 	z-index: 1;
 }
-
+/*unicode*/
+@font-face {
+  font-family: 'iconfont';  /* project id 388097 */
+  src: url('//at.alicdn.com/t/font_388097_j8gno81o3f1j1yvi.eot');
+  src: url('//at.alicdn.com/t/font_388097_j8gno81o3f1j1yvi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_388097_j8gno81o3f1j1yvi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_388097_j8gno81o3f1j1yvi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_388097_j8gno81o3f1j1yvi.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
 /*选中文本*/
 ::selection {
     background: #444444;
@@ -667,10 +682,10 @@ footer a{
 	cursor: pointer;
 	z-index:9999;
 	background-size: contain;
+	display: none;
 }
 /*tips*/
 #theme_tips{
-	
 	height: 55px;
 	border-radius:4px;
 	position: fixed;
@@ -2211,7 +2226,7 @@ ul#my_lyrics li{
 #wife {
     user-select: none;
     position: fixed;
-    left: 30px;
+    right: 0;
     bottom: 0;
     width: 280px;
     height: 250px;
@@ -2221,6 +2236,27 @@ ul#my_lyrics li{
 }
 #live2d {
     position: relative;
+}
+.live2dTool{
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: none;
+}
+#wife:hover .live2dTool{
+	display: block;
+}
+#change-position i.iconfont:nth-child(2){
+	display: none;
+}
+#play-music i.iconfont:nth-child(2){
+	display: none;
+}
+.live2dTool span{
+	cursor: pointer;
+	color: #5b6c7d;
+	display: block;
+	line-height: 18px;
 }
 .message {
     opacity: 0;
@@ -2316,6 +2352,12 @@ ul#my_lyrics li{
 @media screen and (max-width: 560px) {
 	#player{
 		display: none;
+	}
+	#wife{
+		display: none;
+	}
+	#go-top{
+		display: block;
 	}
 }
 @media screen and (max-width: 480px) {

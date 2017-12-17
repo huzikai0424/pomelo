@@ -11,6 +11,38 @@
         {
             "selector": "#wife #live2d",
             "text": ["干嘛呢你，快把手拿开~~", "鼠…鼠标放错地方了！"]
+        },
+        {
+            "selector":"#wife #go-home",
+            "text":["回首页看看吧"]
+        },
+        {
+            "selector":"#wife #say-Hitokoto",
+            "text":["猜猜我要说些什么"]
+        },
+        {
+            "selector":"#wife #recover-position",
+            "text":["让我回到右下角把！"]
+        },
+        {
+            "selector":"#wife #play-music",
+            "text":["听一首愉快的歌吧!"]
+        },
+        {
+            "selector":"#wife #change-position",
+            "text":["点击我就可以拖动啦~"]
+        },
+        {
+            "selector":"#wife #close-wife",
+            "text":["要说再见了吗?"]
+        },
+        {
+            "selector":"#to-top",
+            "text":["去最上面看看"]
+        },
+        {
+            "selector":"#next-song",
+            "text":["这首歌不好听吗?换一首把！"]
         }
     ],
     "click": [

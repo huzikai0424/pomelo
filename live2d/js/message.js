@@ -35,7 +35,7 @@ $.ajax({
                 var text = tips.text;
                 if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
                 text = text.renderTip({text: $(this).text()});
-               // showMessage(text, 3000);
+                showMessage(text, 3000);
             });
         });
         $.each(result.click, function (index, tips){
@@ -43,7 +43,7 @@ $.ajax({
                 var text = tips.text;
                 if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
                 text = text.renderTip({text: $(this).text()});
-               // showMessage(text, 3000);
+                showMessage(text, 3000);
             });
         });
     }
@@ -64,7 +64,6 @@ function wife_welcome(){
         }
     }else {
         if (window.location.href == wife_var.homeurl) { //如果是主页
-            console.log(wife_var.homeurl);
             var now = (new Date()).getHours();
             if (now > 23 || now <= 5) {
                 text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？';
@@ -107,7 +106,6 @@ function showHitokoto(){
 
 function showMessage(text, timeout){
     if(Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1)-1];
-    console.log('showMessage', text);
     $('.message').stop();
     $('.message').html(text).fadeTo(200, 1);
     if (timeout === null) timeout = 5000;
@@ -120,26 +118,56 @@ function hideMessage(timeout){
     $('.message').delay(timeout).fadeTo(200, 0);
 }
 function Init_wife(){
-    
-    var url=wife_var.photo_url;
-    var autochange=wife_var.autochange=="yes"?"1":"0";
-    if(url){
-       var imgUrl=wife_var.photo_url;
-    }else{
-       var imgUrl=wife_var.themeurl+"live2d/model/textures/";
-    }
-
-    loadlive2d("live2d", wife_var.themeurl+"live2d/model/get_wife.php");
+    var live2d_path=wife_var.themeurl+"live2d/model/pio/";
+    var url=wife_var.photo_url?wife_var.photo_url+"/":wife_var.themeurl+"live2d/model/textures/";
+    var randNum=wife_var.autochange=="yes"?Math.floor(Math.random()*64+1):"1";
+    var reallyUrl=url+randNum+".png";
+    $.getJSON(live2d_path+"model.json",function(model){
+    const modelObj = JSON.parse(JSON.stringify(model, null, 2))
+    modelObj.textures = [reallyUrl]
+    loadlive2d('live2d',live2d_path,'',modelObj);
+    });
     var wife_postion=JSON.parse(localStorage.getItem("wife"));
     if(wife_postion){
         $("#wife").css({"left":wife_postion.x,"top":wife_postion.y});
     }
 }
-$(function(){
+
     Init_wife();
     wife_welcome();
+    wifeCanbeChange=false;
+    $("#go-home").click(function(){
+        pjaxLoad(wife_var.homeurl);
+    });
+    $("#say-Hitokoto").click(function(){
+        showHitokoto();
+    });
+    $("#change-clothes").click(function(){
+       //$("#wife").remove();
+        Init_wife();
+    });
+    $("#play-music").click(function(){
+        $("#music")[0].play();
+    });
+    $("#to-top").click(function(){
+        $('html,body').animate({scrollTop:'0px'},500);
+    });
+    $("#next-song").click(function(){
+        next_play();
+    });
+    $("#change-position").click(function(){
+        $("#change-position i").eq(0).hide();
+        $("#change-position i").eq(1).show();
+       wifeCanbeChange=true;
+        showMessage('现在我可以移动咯', 5000, true);
+    });
+    $("#close-wife").click(function(){
+        showMessage("有缘终会相逢~", 1000);
+        $("#wife").fadeOut(1500);
+    });
     var wife=document.getElementById("wife");
     wife.onmousedown=function(event){
+        if(wifeCanbeChange){
         var e=window.event||event;
         var x=e.clientX-wife.offsetLeft;  
         var y=e.clientY-wife.offsetTop;     //老婆相对与浏览器可视窗口的坐标
@@ -164,14 +192,15 @@ $(function(){
                 }
             };
             document.onmouseup=function(e){
-                var html="clientX="+e.clientX+"\nclientY="+e.clientY+"\noffsetleft="+wife.offsetLeft+"\noffsetTop="+wife.offsetTop;
-                $('.message').text(html);
                 localStorage.setItem("wife",JSON.stringify({"x":wife.style.left,"y":wife.style.top}));
                 document.onmousemove=null;
                 document.onmouseup=null;
+                wifeCanbeChange=false;
+                $("#change-position i").eq(1).hide();
+                $("#change-position i").eq(0).show();
             }
         }
         return false;
+        }
     };
-});
 }

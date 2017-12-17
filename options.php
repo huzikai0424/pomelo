@@ -346,7 +346,7 @@ function optionsframework_options() {
 	$options[] = array(
 		'name' => __( '自动换装', 'theme-textdomain' ),
 		'desc' => __( '没有放入服装文件前请不要开启！', 'theme-textdomain' ),
-		'id' => 'wife_autoChange',
+		'id' => 'wife_autochange',
 		'std' => 'no',
 		'type' => 'radio',
 		'options' => array(

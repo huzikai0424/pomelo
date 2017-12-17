@@ -1,12 +1,21 @@
 <?php
 header('Content-Type: text/text; charset=utf-8');
 ERROR_REPORTING(0);
-$randNum=rand(1,64);
-$imgUrl="http://oijbbaxnm.bkt.clouddn.com/2.png";
+$url=isset($_GET['url'])?$_GET['url']:"";
+$autochange=isset($_GET['autochange'])?$_GET['autochange']:"";
+echo $url;
+echo $autochange;
+if($url&&$autochange){
+    $randNum=$autochange?rand(1,64):1;
+    $imgUrl=$url."/".$randNum.".png";
+}
+else{
+    exit("403");
+}
 $json='{"version":"1.0.0",
     "model":"model.moc",
     
-    "textures":[""],
+    "textures":["'.$imgUrl.'"],
     "layout":{
         "center_x":0.0,
         "center_y":-0.05,

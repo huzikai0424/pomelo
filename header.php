@@ -71,6 +71,16 @@
 <div id="wife">
     <div class="message" style="opacity:0"></div>
     <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+    <div class="live2dTool">
+		<span id="go-home"><i class="iconfont">&#xe60e;</i></span>
+		<span id="say-Hitokoto"><i class="iconfont">&#xe6ba;</i></span>
+		<span id="play-music"><i class="iconfont">&#xe601;</i><i class="iconfont">&#xe62f;</i></span>
+		<span id="next-song"><i class="iconfont">&#xe603;</i></span>
+		<span id="to-top"><i class="iconfont">&#xe62a;</i></span>
+		<span id="recover-position"><i class="iconfont">&#xe650;</i></span>
+		<span id="change-position"><i class="iconfont">&#xe602;</i><i class="iconfont">&#xe60b;</i></span>
+		<span id="close-wife"><i class="iconfont">&#xe607;</i></span>
+    </div>
 </div>
 <?php endif;?>
 <?php if(get_option('pomelo_player_setting')['music_open']=="1"):?>
@@ -120,9 +130,6 @@
 <?php endif;?>
 <script>
 var playlist=<?php echo $playlist=get_option('pomelo_player_setting')['playlist']?get_option('pomelo_player_setting')['playlist']:music_default();?>;
-<?php if(pomelo_option("welcome")):?>
-setTimeout('showtips("<?php echo pomelo_option('welcome')?>");',1000);
-<?php endif;?>
 </script>
 
 

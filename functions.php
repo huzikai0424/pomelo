@@ -435,21 +435,12 @@ function theme_enqueue_scripts() {
             wp_enqueue_script('input', THEME_URL.'js/input.min.js',array(),false,true);
         }
         wp_enqueue_script('highlight', THEME_URL.'js/highlight.pack.js' , array(), false,true); 
-        wp_enqueue_script('live2d',    THEME_URL.'live2d/js/live2d.js' , array(), false,true); 
-        wp_enqueue_script('message',   THEME_URL.'live2d/js/message.js' , array(), false,true); 
+        if(pomelo_option("wife_open")=="yes"){
+            wp_enqueue_script('live2d',    THEME_URL.'live2d/js/live2d.js' , array(), false,true); 
+            wp_localize_script('live2d', 'live2d_var',array('homeurl'=>home_url()));
+        }
         wp_enqueue_script('theme_js',  THEME_URL.'js/script.js' , array(), '1.0', true);
         // 脚本本地化：后端给前端准备的变量
-        wp_localize_script( 'message', 'wife_var', 
-            array(
-                'themeurl'      => get_template_directory_uri().'/',
-                'homeurl'       => home_url().'/',
-                'open'          => pomelo_option('wife_open'),
-                'autochange'    => pomelo_option("wife_autoChange"),
-                'photo_url'     => pomelo_option("wife_photo_url"),
-                'hitokoto_type' => pomelo_option("wife_hitokoto"),
-                'refresh_time'  => pomelo_option("wife_hitokoto_refresh"),
-                )
-            );
         wp_localize_script( 'theme_js', 'theme_var', 
             array(
                 'themeurl'        => get_template_directory_uri().'/',
@@ -470,6 +461,17 @@ function theme_enqueue_scripts() {
                 'autoplay'        => get_option('pomelo_player_setting')['autoplay'],
                 'is_admin'        => is_user_logged_in()
             )
+        );
+        wp_localize_script( 'theme_js', 'wife_var', 
+            array(
+                'themeurl'      => get_template_directory_uri().'/',
+                'homeurl'       => home_url().'/',
+                'open'          => pomelo_option('wife_open'),
+                'autochange'    => pomelo_option("wife_autochange"),
+                'photo_url'     => pomelo_option("wife_photo_url"),
+                'hitokoto_type' => pomelo_option("wife_hitokoto"),
+                'refresh_time'  => pomelo_option("wife_hitokoto_refresh"),
+                )
         );
     }
 }
